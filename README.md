@@ -11,7 +11,7 @@ This project allows developers to generate html code automatically based on obje
   - Objection.define(*object*):
     - Converts original key definition into another
     - Example:
-      - An object like {arc:{id:"class",class:"id", append:docbody()}} will result in an arc element appended to document body. To turn arc into let's say a p element you can use Objection.define({arc:"p"}) and the arc element will automatically become a p element when calling create.
+      - An object like {arc:{id:"class",class:"id", append:docbody()}} will result in an arc element appended to document body. To turn arc into for example a p element you can use Objection.define({arc:"p"}) and the arc element will automatically become a p element when calling create.
   - Objection.create(*object*):
     - Creates all specified elements using [Generator.js](https://github.com/ve2323/Generator.js)
   - Objection.elements:
