@@ -1,6 +1,7 @@
 # Objection.js
 
 Adds extra functionality to [Generator.js](https://github.com/ve2323/Generator.js)
+- [Generator.js](https://github.com/ve2323/Generator.js) is included in this project
 
 This project allows developers to generate html code automatically based on object key:values
 
