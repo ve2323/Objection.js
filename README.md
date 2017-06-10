@@ -28,6 +28,7 @@ This project is still being developed and amongst the planned features are the f
 - Allow register element directly by specifying unique second level key
 - Performance and stability optimization
 - Debug options
+- Multi-definition feature
 
 ## Example code
 ```
