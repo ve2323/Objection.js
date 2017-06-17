@@ -20,7 +20,7 @@ This project allows developers to generate html code automatically based on obje
   - Objection.definition:
     - Used internally to set definition from with Objection.define(*object*)
       - Multidefinition can be used to define multiple properties to the same reference, structure as:
-        - *key1*_*key2*_*key3*_*...*:"*definition*",
+        - *key1* _ *key2* _ *key3* _ *...*:"*definition*",
   - Objection.clean():
     - destroys all [Generator.js](https://github.com/ve2323/Generator.js) functions
 - Objection unique features:
