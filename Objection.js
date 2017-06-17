@@ -1,14 +1,16 @@
-var Objection = {
+var Objection = { 
 	elements: {},
 	definition: {},
 	clean: function(){destroy(selectionNames());},
-	define: function(object){for(var item in object){this.definition[item] = object[item];}},
+	define: function(object){for(var item in object){for(var i in item.split("_")){this.definition[item.split("_")[i]] = object[item];}}},
 	create: function(object){
 		var initObj = {};
+		var funcObj = {};
+		var iterator = 0;
+		
 		for(var key in object){
 			var key = (exist(this.definition[key])) ? this.definition[key] : key; initObj[key]=key;
-		}
-		Generator.init(initObj);
+		} Generator.init(initObj);
 
 		for(var item in object){
 			var element;
@@ -17,12 +19,19 @@ var Objection = {
 					object[item].append = this.elements[object[item].append];
 				}
 			}
+			for(var i in object[item]){
+				if(i.indexOf("func") != -1){
+					funcObj["func"+iterator.toString()] = object[item][i];
+					iterator++;
+					delete object[item][i];
+				}
+			}
 			if(exist(this.definition[item])) {
 				element = window[this.definition[item]](object[item]).element;
-			}else{
+			}else {
 				element = window[item](object[item]).element;
 			}this.elements[item] = element;
-		}
+		} for(var f in funcObj){Generator.addFunc(funcObj[f]);}
 	}
 };
 
@@ -39,7 +48,7 @@ var Generator = {
 			for(var f in func){if(isFunc(func[f])){(func[f])();} else{
 				if(isObject(func[f])){(func[f][Object.keys(func[f])[0]])(func[f][Object.keys(func[f])[1]]);} 
 			}}
-		}
+		} else if(isFunc(func)){(func)();}
 	}
 }; function corrolation(name, fresh){
 	var element = (isBoolean(fresh)&&fresh) ? name : tags[name];
